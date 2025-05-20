@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陪伴助手</title>
+    <style>
+        /* 确保 html 和 body 元素占据整个屏幕 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        html,
+        body {
+            background-image: url("./image/back3.jpg");
+            background-size: cover;
+            min-height: 100vh; /* 确保背景图片覆盖整个视口高度 */
+        }
+
+
+        header {
+            position: fixed; /* 固定导航栏在顶部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 100;
+        }
+
+			.Home a{
+				padding: 6px 15px;
+                color:#f1939c;
+				border-radius: 20px;
+				margin: 0 10px;
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.Home a:hover{
+	            background: #f1939c;
+	            color: #fff;
+			}
+        /* 为聊天窗口容器设置样式，确保不影响导航栏和背景 */
+       .chat-container {
+            position: fixed;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; /* 可按需调整宽度 */
+            height: 650px; /* 可按需调整高度 */
+		    border-radius: 15px; /* 设置容器的圆角大小，可按需调整 */
+            overflow: hidden; 
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+       		<h2 class="Home"><a href="law.html">Back</a></h2>
+		</header>
+
+    <div id="chat-box-container" class="chat-container"></div>
+	<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+    <script>
+        // 获取放置聊天框的容器元素
+        const chatBoxContainer = document.getElementById('chat-box-container');
+
+        const chatClient = new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7490080029876125730', // 替换为实际的 
+                isIframe: false,
+            },
+            auth: {
+                type: 'token',
+                token: 'pat_DaekW5vaImmZfZed6XlMQTE1m3w3FGPV24OhbxtjZggDVyo82ks3f91ajDBigqav', // 替换为实际的 token
+                onRefreshToken: async () => 'pat_DaekW5vaImmZfZed6XlMQTE1m3w3FGPV24OhbxtjZggDVyo82ks3f91ajDBigqav', // 替换为实际的 token
+            },
+            userInfo: {
+                id: 'user',
+                url: 'https://ts3.tc.mm.bing.net/th/id/OIP-C.ahJORjCnaeLnPlg2MK8iJwAAAA?w=119&h=104&c=7&bgcl=4d683f&r=0&o=6&dpr=2&pid=13.1', 
+                nickname: '我',
+            },
+            ui: {
+                base: {
+                    icon: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.TJQs5c1-fM8SyOcY48cWDQHaHL?w=145&h=180&c=7&r=0&o=5&dpr=2&pid=1.7', 
+                    layout:'mobile',
+                    lang: 'en',
+                    zIndex: 1000,
+                },
+                chatBot: {
+                    title: '律师助手',
+                    uploadable: true,
+                    width: '100%', // 让聊天框占满容器宽度
+                    height: '100%', // 让聊天框占满容器高度
+                    el: chatBoxContainer // 将获取到的容器元素赋值给 el
+                },
+                asstBtn: {
+                    isNeed: false,
+                },
+                footer: {
+                    isShow: false,
+                }
+            },
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            chatClient.showChatBot();
+        });
+    </script>
+</body>
+
+</html>

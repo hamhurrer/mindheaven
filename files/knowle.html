@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识科普</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+            
+        .header {
+            font-size: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            padding: 1rem 9%;
+            }
+    
+        .header .logo {
+        font-size: 1.8rem;
+        font-weight: bolder;
+        color: #222;
+        text-decoration: none;
+        }
+
+        .header .logo i {
+        color: #bac34e;
+        padding-right: .5rem;
+        }
+
+        .header .navbar a {
+        font-size: 1.1rem;
+        color: #666;
+        margin: 0 1rem;
+        text-decoration: none;
+        }
+
+        .header .navbar a:hover {
+        color: #bac34e;
+        }
+
+        .header .icons div {
+        font-size: 2.5rem;
+        margin-left: 1.7rem;
+        cursor: pointer;
+        color: #666;
+        }
+
+        .header .icons div:hover {
+        color: #bac34e;
+        }
+		
+
+        #menu-btn {
+        display: none;
+        }
+
+        body {
+            min-block-size: 100%;
+            display: grid;
+            place-content: center;
+            /* 设置上下内边距为 30% 视口高度 */
+            padding-block:23dvh;
+            background: #eae6e3;
+        }
+
+        @keyframes slide-fade-in {
+            from {
+                opacity: 0;
+                box-shadow: none;
+                transform: scale(.8) translateY(15vh);
+            }
+        }
+
+        .cards {
+            display: grid;
+            gap: 2rem;
+            /* 自动排列 */
+            grid-template-columns: repeat(4, 30ch);
+			grid-auto-rows: 200px; 
+        }
+
+        .card {
+            animation: slide-fade-in both;
+            /* 使用浏览器的视图时间线,允许动画根据视口的变化进行同步 */
+            animation-timeline: view();
+            /* 定义动画时间范围 */
+            animation-range: contain 0% contain 50%;
+            border-radius: 10px;
+            line-height: 6;
+            box-shadow: 0px 8px 20px #00000022;
+            font-size: 32px;
+            letter-spacing: 5px;
+            color: #959491;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top left,  #fef8e0 0%,#fef8e0 20%, #dedeea 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem; /* 添加内边距 */
+        }
+		
+		.spacer1 {
+            animation: slide-fade-in both;
+            /* 使用浏览器的视图时间线,允许动画根据视口的变化进行同步 */
+            animation-timeline: view();
+            /* 定义动画时间范围 */
+            animation-range: contain 0% contain 60%;
+            border-radius: 10px;
+            line-height: 6;
+            box-shadow: 0px 8px 20px #00000022;
+            font-size:18px;
+            letter-spacing: 5px;
+            color: #869d9d;
+            width: 100%;
+            height: 80%;
+            overflow: hidden;
+            background-image:url("image/g1.jpg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem; /* 添加内边距 */
+        }
+
+        .adjust-line-height {
+            line-height: 1.7;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+			object-fit: cover;
+        }
+		 .card video {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .spacer {
+            grid-column: 1 / -1; /* 横跨所有列 */
+            height: 2rem; /* 设置空白高度 */
+			grid-row: auto / span 1; /* 让 .spacer 占据一行 */
+        }
+    .spacer img {
+            width: 100%;
+            height: 100%;
+			object-fit: cover;
+        }
+		.spacer1s{
+            display: grid;
+            gap: 2rem;
+            /* 自动排列 */
+            grid-template-columns: repeat(3, 40ch);
+			grid-auto-rows: 200px; 
+			justify-content: center;
+            align-items: center;
+        }
+         
+        .card:nth-of-type(3) {
+            grid-row: span 2;
+        }
+
+        .card:nth-of-type(4) {
+            grid-row: span 2;
+        }
+
+        .card:nth-of-type(16) {
+            grid-row: span 2;
+        }
+
+        .card:nth-of-type(19) {
+            grid-row: span 2;
+        }
+
+        .card:nth-of-type(27) {
+            grid-row: span 2;
+        }
+
+        .card:nth-of-type(28) {
+            grid-row: span 2;
+        }
+		 .card:nth-of-type(33) {
+            grid-row: span 2;
+        }
+
+        #card1 {
+            grid-column: 1 / span 2;
+			background-image: url("image/g4.jpg")
+			
+        }
+
+        #card2 {
+    grid-column: 3 / span 2;
+    background-image: url("image/g4.jpg");
+    font-weight: bold;		
+        }
+
+        #card3 {
+    grid-column: 1 / span 2;
+    background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+    font-weight: bold;
+        }
+
+        #card4 {
+            grid-column: 3 / span 1;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+		
+		#card5 {
+            
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+		
+		 #card6 {
+            
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+
+        #card7 {
+            grid-column: 2 / span 2;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+        #card8 {
+            grid-column: 2 / span 2;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #card9 {
+            grid-column: 4 / span 1;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #carda {
+            grid-column: 1 / span 1;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #cardb {
+            grid-column: 2 / span 1;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #cardc {
+            grid-column: 3 / span 2;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #cardd {
+            grid-column: 1 / span 2;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #carde {
+            grid-column: 3 / span 2;
+			background: radial-gradient(ellipse at top left,  #eadde5 0%,#eadde5 30%, #fef8e0 100%);
+        }
+
+        #cardf {
+    grid-column: 1 / span 2;
+    font-weight: bold;
+        }
+
+        #cardg {
+            grid-column: 3 / span 1;
+        }
+
+        #cardi {
+            grid-column: 1 / span 1;
+        }
+
+        #cardj {
+            grid-column: 2 / span 1;
+        }
+
+        #cardl {
+            grid-column: 1 / span 2;
+        }
+
+        #cardm {
+            grid-column: 4 / span 1;
+        }
+
+        #cardn {
+            grid-column: 1 / span 2;
+        }
+
+        #cardo {
+            grid-column: 3 / span 2;
+        }
+
+        #cardp {
+            grid-column: 1 / span 2;
+        }
+
+        #cardq {
+            grid-column: 3 / span 1;
+        }
+
+        #cardr {
+            grid-column: 4 / span 1;
+        }
+
+        #cardu {
+            grid-column: 3 / span 2;
+        }
+
+        #cardv {
+            grid-column: 3 / span 2;
+        }
+		 #cardw {
+    grid-column: 1 / span 2;
+    background: radial-gradient(ellipse at top left,  #dedeea 0%,#dedeea 20%, #fce8e7 100%);
+    font-weight: bold;
+        }
+		 #cardx {
+            grid-column: 3 / span 2;
+			background: radial-gradient(ellipse at top left,  #dedeea 0%,#dedeea 20%, #fce8e7 100%);
+        }
+		 #cardy {
+            grid-column: 1 / span 2;
+		    background: radial-gradient(ellipse at top left,  #dedeea 0%,#dedeea 20%, #fce8e7 100%);
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+
+        <a href="../index.php" class="logo"> <i class="fas fa-shopping-basket"></i> Home </a>
+
+        <nav class="navbar">
+			<a href="knowle.html">知识科普</a>
+            <a href="psych.html">心理咨询</a>
+            <a href="law.html">法律援助</a>
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+    </header>
+    <div class="cards">
+
+        <div class="card" id="card1"> <video autoplay muted loop><source src="image/横1.mp4" type="video/mp4"></video></div>
+        <div class="card" id="card2">知识科普</div>
+	</div>
+	
+<div class="spacer1s"> 
+		 <div class="spacer1" id="s1">
+			 <a href="#sapcera" style="color: #FFFFFF; font-size: 20px; font-weight: bold;">失恋痛苦的心理与生理根源</a>
+        </div>
+     <div class="spacer1" id="s2">
+			 <a href="#sapcerb" style="color: #FFFFFF; font-size: 20px; text-align: center; font-weight: bold;">失恋后的常见心理反应及解析</a>
+	     </div>
+      <div class="spacer1" id="s3">
+			 <a href="#sapcerc" style="color: #FFFFFF; font-size: 20px; font-weight: bold;">失恋背后的奥秘</a>
+	     </div>
+		<div class="spacer" id="sapcera"></div>
+</div>
+	
+	<div class="cards">
+		
+        <div class="card" id="card3">失恋痛苦的生理与心理根源</div>
+        <div class="card" id="card4">心理</div>
+        <div class="card adjust-line-height" id="card5" style="font-size: 17px;"> 1.自我概念的冲击：在恋爱过程中，人们往往会将恋人纳入自己的自我概念，形成一种 “我们” 的心理认知。失恋打破了这种认知，使个体失去了一部分与自我紧密相连的关系。研究表明，经历失恋的人在描述自我特征时，会出现更多的不确定性和混乱，这表明失恋对自我认同造成了冲击，让人陷入自我怀疑和迷茫 。</div>
+        <div class="card" id="card6" > <img src="image/竖4.jpg"></div>
+        <div class="card adjust-line-height" id="card7" style="font-size: 17px;">2.依恋关系的断裂：根据依恋理论，人们在亲密关系中会形成不同的依恋模式，如安全型、焦虑型和回避型。失恋意味着依恋关系的突然中断，对于具有焦虑型依恋模式的人来说，可能会引发强烈的被抛弃感和恐惧；而回避型依恋的人，虽然表面上可能显得冷漠，但内心也会受到不同程度的影响，出现情感上的压抑和困扰 。</div>
+        <div class="card adjust-line-height" id="card8" style="font-size: 17px;">3.认知偏差与理想化：失恋后，人们常常会出现认知偏差，不自觉地将前任理想化。这是因为记忆在情感的作用下，倾向于保留美好的部分，而过滤掉不愉快的经历。这种理想化进一步加剧了失恋的痛苦，让人们难以接受分手的现实，不断在回忆中挣扎 。</div>
+        <div class="card" id="card9"><video autoplay muted loop><source src="image/方3.mp4" type="video/mp4"></div>
+        <div class="card" id="carda">生理层面</div>
+        <div class="card" id="cardb"> <img src="image/疲惫女.png"></div>
+        <div class="card adjust-line-height" id="cardc" style="font-size: 17px;">1.大脑疼痛反应机制：当人们经历失恋，大脑中负责处理身体疼痛的区域，如前扣带回皮质和岛叶会被激活。研究人员对经历分手的人群进行扫描发现，在回忆分手场景时，这些脑区呈现出明显的活动增强，这使得失恋的痛苦在身体层面有了切实的感受，就像身体受到创伤一样。</div>
+        <div class="card adjust-line-height" id="cardd" style="font-size: 17px;">2.神经递质变化：恋爱期间，大脑会分泌多巴胺、血清素等神经递质。多巴胺带来愉悦感和兴奋感，血清素则有助于稳定情绪。失恋后，这些神经递质的分泌量会大幅下降。以血清素为例，其水平降低会影响人的情绪调节能力，导致情绪低落、焦虑不安等症状，如同对这些神经递质 “上瘾” 后突然戒断。</div>
+        <div class="card adjust-line-height" id="carde" style="font-size: 17px;">3.应激激素的影响：失恋会引发身体的应激反应，促使肾上腺分泌皮质醇等应激激素。长期处于高水平的皮质醇状态，会干扰身体的正常代谢，影响免疫系统功能，导致身体更容易出现疲劳、抵抗力下降等问题，进而加重心理上的不适感 。</div>
+        <div class="spacer" id="sapcerb"></div>
+        <div class="card" id="cardf">失恋后的常见心理反应及解析</div>
+      <div class="card" id="cardg"> <video autoplay muted loop><source src="image/方1.mp4" type="video/mp4"></div>
+        <div class="card" id="cardh"><img src="image/竖3.jpg"></div>
+        <div class="card" id="cardi">情绪波动</div>
+        <div class="card" id="cardj"><img src="image/情报女.png"></div>
+        <div class="card adjust-line-height" id="cardk" style="font-size: 17px;">2.愤怒与怨恨：部分人在失恋后会将内心的痛苦转化为对前任的愤怒和怨恨。这种情绪源于感觉自己受到了伤害、被背叛或不公正对待。愤怒可能表现为对前任的指责、抱怨，甚至采取报复行为。然而，这种情绪往往会进一步加剧自己的痛苦，不利于走出失恋的阴影 。</div>
+        <div class="card adjust-line-height" id="cardl" style="font-size: 17px;"> 1.悲伤与抑郁：这是失恋后最常见的情绪反应，表现为持续的情绪低落、失去兴趣和快乐感。悲伤情绪可能会在一段时间内反复出现，影响日常生活的各个方面，如食欲、睡眠和工作效率。这种情绪的产生源于对失去的感情和关系的哀悼，是一种正常的心理反应，但如果持续时间过长，可能会发展为抑郁情绪，需要引起重视 。</div>
+        <div class="card" id="cardm"><video autoplay muted loop><source src="image/方2.mp4" type="video/mp4"></div>
+        <div class="card" id="cardn"><video autoplay muted loop><source src="image/横3.mp4" type="video/mp4"></video></div>
+        <div class="card adjust-line-height" id="cardo" style="font-size: 17px;"> 3.焦虑与不安：失恋会让人对未来的感情生活产生焦虑和不安。担心自己是否还能找到真爱，害怕再次受到伤害，这些担忧会导致人们在面对新的感情机会时犹豫不决、回避亲密关系。焦虑情绪还可能伴随着身体症状，如心跳加速、呼吸急促、失眠等 。</div>
+        <div class="card adjust-line-height" id="cardp" style="font-size: 17px;">1.社交退缩：许多人在失恋后会选择减少社交活动，避免与他人接触。这是因为他们害怕面对他人的询问和同情，担心再次受到伤害。然而，长期的社交退缩会导致孤独感加剧，进一步加重负面情绪，形成恶性循环 。</div>
+        <div class="card" id="cardq">行为变化</div>
+        <div class="card" id="cardr"> <img src="image/生活.png"></div>
+        <div class="card" id="cards"> <img src="image/竖1.jpg"></div>
+        <div class="card adjust-line-height" id="cardt" style="font-size: 18px;">2.强迫性回忆：不断地回忆与前任相处的点点滴滴，是失恋后常见的行为表现。这种强迫性回忆源于大脑对未完成事件的执着，试图通过不断回顾来寻找答案或弥补失去。但过度沉浸在回忆中会阻碍人们向前看，无法真正走出失恋的痛苦 。</div>
+        <div class="card adjust-line-height" id="cardu" style="font-size: 17px;">3.生活习惯变化：失恋后可能会出现生活习惯改变的行为变化。比如，原本生活规律的人开始日夜颠倒，晚上失眠多梦，白天精神萎靡。饮食习惯也可能失调，有的人会暴饮暴食，通过食物来填补内心的空虚；而有的人则食欲不振，对曾经喜爱的食物也提不起兴趣，整个人的生活节奏被打乱。这样的反应会随着时间逐渐减轻</div>
+        <div class="card" id="cardv"><video autoplay muted loop><source src="image/横2.mp4" type="video/mp4"></video></div>
+		<div class="spacer" id="sapcerc"></div>
+		 <div class="card" id="cardw">失恋背后的奥秘</div>
+		<div class="card adjust-line-height" id="cardx" style="font-size: 17px;">失恋所带来的痛苦背后有着复杂的生理和心理机制。从生理角度看，大脑在失恋时会产生类似身体疼痛的反应。研究发现，当回忆起分手场景时，大脑中负责处理身体疼痛的区域，如前扣带回皮质和岛叶，会被激活。因此失恋会让我们产生一种真切的 “心痛” 感。
+        在爱情里，我们的大脑会分泌多巴胺等神经递质，从而感到愉悦和幸福。而失恋时，这些神经递质的水平会急剧下降，导致我们产生戒断反应，就像对某种物质上瘾后突然停止摄入一样难受。这也是为什么分手后我们会想要联系对方。
+        从心理层面分析，失恋意味着我们失去了一段重要的关系，以及与之相关的自我认知。我们在恋爱中往往会将对方纳入自己的 “自我概念”，分手后，这个部分被抽离，会让我们感到自我认同的混乱，仿佛失去了一部分自己，从而陷入自我怀疑和否定。</div>
+		<div class="card" id="cardy"><video autoplay muted loop><source src="image/横6.mp4" type="video/mp4"></video></div>
+    </div>
+	
+</body>
+
+</html>

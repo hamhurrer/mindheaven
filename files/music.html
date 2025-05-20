@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="music.css" />
+    <title>冥想</title>
+	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo"><a href="../index.php" class="logo">Home</a></h2>
+        <nav class="navigation">
+            <a href="#" class="active">冥想</a>
+            <a href="DY.html">电影</a>
+            <a href="youxi.html">小游戏</a>
+        </nav>
+    </header>
+    <!-- 上方文字框 -->
+    
+    <div class="container">
+        <div class="card" style="--i: 1; background-image: url('./image/雨.jpg');">雨</div>
+        <audio id="audio1" src="audio/雨.wav"></audio>
+        <div class="card" style="--i: 2; background-image: url('./image/寺.jfif');">寺</div>
+        <audio id="audio2" src="audio/寺.mp3"></audio>
+        <div class="card" style="--i: 3; background-image: url('./image/火.jpg');">火</div>
+        <audio id="audio3" src="audio/火.wav"></audio>
+        <div class="card" style="--i: 4; background-image: url('./image/林.jpg');">林</div>
+        <audio id="audio4" src="audio/林.wav"></audio>
+        <div class="card" style="--i: 5; background-image: url('./image/海.jpg');">海</div>
+        <audio id="audio5" src="./audio/海.flac"></audio>
+    </div>
+    <!-- 下方文字框 -->
+    <div class="bottom-text-box">冥想：舒缓音频搭配专业指导语，有助于放松身心，平息杂念。冥想能调节紊乱神经，使失衡身心重归和谐。专注冥想时，焦虑、悲伤等负面情绪渐消，实现深度情绪管理。长期坚持，更能提升自我认知，汲取成长力量。短短几分钟，冥想打造的静谧时光，让我们在明晰内心，不被回忆和低落情绪痛苦纠缠，以平和之姿重启生活，在一呼一吸间，重寻内心久违的宁静。</div>
+    <!-- 新的下方文字框用于放置网址 -->
+    <div class="bottom-text-box"><a href="https://www.the-guided-meditation-site.com/">Click for more</a></div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        let currentAudio = null;
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', (event) => {
+                // 阻止事件冒泡，避免触发 body 的点击事件
+                event.stopPropagation();
+
+                // 如果有正在播放的音频，停止它
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
+                }
+
+                const audio = document.getElementById(`audio${index + 1}`);
+                audio.play();
+                currentAudio = audio;
+            });
+        });
+
+        // 为 body 添加点击事件监听器
+        document.body.addEventListener('click', () => {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio = null;
+            }
+        });
+    </script>
+</body>
+
+</html>

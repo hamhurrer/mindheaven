@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            background: radial-gradient(ellipse at top left, #f3dee5 0%, #f3dee5 50%, #c4d4df 100%);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+		
+		.full-version-link {
+        color: #739cb7; 
+    }
+
+       .main-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 100px; 
+        }
+
+       .movie-wrapper {
+
+    padding: 20px;
+    text-align: left;
+        }
+
+       .movie {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+       .movie video {
+            width: 700px;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px;
+        }
+
+       .movie-description {
+            flex: 1;
+            color: #474E82;
+            ;
+            text-align: left;
+        }
+        .movie-description p {
+            margin-bottom: 20px;
+        }
+
+       .movie-description h2 {
+            margin-top: 0;
+        }
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 100;
+            margin: 0; 
+        }
+        .logo a{
+            font-size: 1.5em;
+            color: #f1939c;
+            margin-right: 270px;
+            text-decoration: none;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #f1939c;
+            padding: 6px 15px;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        .navigation a:hover,
+        .logo a:hover,
+        .navigation a.active {
+            background:#f1939c;
+            color: #fff;
+            border-radius: 20px;
+        }       
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo"><a href="../index.php" class="logo">Home</a></h2>
+        <nav class="navigation">
+            <a href="music.html">冥想</a>
+            <a href="#" class="active">电影</a>
+            <a href="youxi.html">小游戏</a>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="movie-wrapper">
+            <div class="movie">
+                <div class="movie-description">
+                    <h2>《骗骗喜欢你》</h2>
+                    <p>&emsp;&emsp;在心情阴霾的日子里，《骗骗喜欢你》恰似一道穿透云层的光。影片中，女主晴朗惨遭渣男欺骗，身心俱疲。为讨回公道，她携手 “骗骗专业户” 开启一场妙趣横生的反骗行动。过程中，啼笑皆非的情节接连不断，男主帅气多金，舅舅堪称戏精，还有加湿器般神奇的酒店人员，每个人物都鲜活讨喜。当看到晴朗勇敢反击，以智慧和勇气对抗渣男，那些曾在爱情中受伤的观众，心中的愤懑能得以宣泄。在欢乐与感动交织里，影片传递出生活的希望与美好，让心情低落的人重燃对生活与爱情的信心。</p>
+                    <a href="https://www.mgtv.com/b/641880/22459097.html?fpa=se&lastp=so_result" class="full-version-link">完整版</a>
+                </div>
+                <video controls>                    
+                    <source src="video/骗骗喜欢你片段.mp4" type="video/mp4">                    
+                </video>
+            </div>
+            <div class="movie">
+                <video controls>
+                    <source src="video/熊猫计划片段.mp4" type="video/mp4">
+                </video>
+                <div class="movie-description">
+                    <h2>《熊猫计划》</h2>
+                    <p>&emsp;&emsp;心情低落时，就来看看《熊猫计划》吧！国际功夫巨星 Jackie（成龙 饰）受邀认养了超萌熊猫幼崽呼呼，本以为能开启温馨生活，却不想呼呼因独特的 “大小眼” 基因，被国际犯罪组织盯上，一场熊猫抢夺战就此打响。片中，成龙大哥一展身手，拳拳到肉的动作戏超燃超精彩；魏翔、史策等喜剧演员带来超多诙谐桥段，让人捧腹大笑。而呼呼软萌可爱，一举一动都萌化人心，它的 “抱腿杀” 更是名场面。在这场惊险又搞笑的守 “呼” 行动里，满满的欢乐与温情将驱散你心中的阴霾，治愈所有不开心 。</p>
+                    <a href="https://www.mgtv.com/b/689990/22113263.html?fpa=se" class="full-version-link"> 完整版</a>
+                </div>
+            </div>                    
+            <div class="movie">
+                <video controls>
+                    <source src="video/54fd1d3dac7dc2da9dc9283986575f27.mp4" type="video/mp4">
+                </video>
+                <div class="movie-description">
+                    <h2>《忠犬八公》</h2>
+                    <p>&emsp;&emsp;当你心情低落时，不妨看看《忠犬八公》。这部电影简述了一位教授偶然间收养了一只小狗，给它取名八公。此后，八公每天都在车站等候教授下班，日子温馨又美好。然而，教授意外离世，可八公并不知情，依然日复一日、年复一年地在车站坚守。无论是烈日炎炎，还是寒风凛冽，它始终不曾放弃。在这漫长的等待中，八公纯粹的忠诚与执着，如同一束温暖的光，照亮治愈着每一个观众的内心，让人在感动落泪的同时，重新相信世间美好的存在。</p>
+                    <a href="https://www.mgtv.com/b/529920/18744981.html?fpa=se&lastp=so_result" class="full-version-link">完整版</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html> 
